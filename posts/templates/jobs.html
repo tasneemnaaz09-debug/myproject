@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div style="padding:20px;">
+
+    <h2>Find Job Listings</h2>
+
+    <!-- SEARCH BAR -->
+    <form method="GET">
+        <input 
+            type="text" 
+            name="search"
+            placeholder="Search jobs..." 
+            value="{{ request.GET.search }}"
+            style="width:100%; padding:10px; margin-bottom:15px; border:1px solid #ccc; border-radius:5px;"
+        >
+    </form>
+
+    <!-- JOB LIST -->
+    {% if jobs %}
+        {% for job in jobs %}
+        <div style="border:1px solid #ddd; padding:15px; margin-bottom:10px; border-radius:8px;">
+
+            <h3>{{ job.title }}</h3>
+            <p>{{ job.company }}</p>
+            <p>{{ job.location }}</p>
+
+         <a href="{{ job.applyLink }}" target="_blank"
+   style="display:inline-block; margin-top:5px; padding:8px 14px; background:#0073b1; color:white; border-radius:5px; text-decoration:none;">
+   Apply Now
+</a>
+
+        </div>
+        {% endfor %}
+
+    {% else %}
+        <p>No jobs found 😢</p>
+    {% endif %}
+
+</div>
+
+{% endblock %}

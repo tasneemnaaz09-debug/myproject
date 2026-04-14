@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- 🔥 HERO SECTION -->
+<div style="text-align:center; padding:60px 20px;">
+    <h1 style="font-size:36px; font-weight:bold;">
+        Find Your Dream Job
+    </h1>
+    <p style="color:gray; margin-top:10px;">
+        Explore top companies and opportunities
+    </p>
+</div>
+
+<!-- 🔥 TOP COMPANIES TITLE -->
+<h2 style="text-align:center; margin-top:20px;">
+    Top Companies
+</h2>
+
+<!-- 🔥 COMPANY LIST -->
+<div style="display:flex; flex-wrap:wrap; justify-content:center; gap:20px; padding:20px;">
+
+{% for company in companies %}
+<div style="
+    width:300px;
+    background:white;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.1);
+">
+
+    <!-- Company Name -->
+    <h3 style="margin-bottom:10px;">
+        {{ company.name }}
+    </h3>
+
+    <!-- Description -->
+    <p style="color:gray; font-size:14px; line-height:1.5;">
+        {{ company.desc }}
+    </p>
+
+</div>
+{% endfor %}
+
+</div>
+
+
+</div>
+
+
+
+<!-- JOB SECTION -->
+
+<div style="display:flex; flex-direction:column; align-items:center;">
+
+{% for job in jobs %}
+<div class="job-card">
+
+    <h3>{{ job.title }}</h3>
+
+    <p style="color:gray;">{{ job.company }}</p>
+
+    <p>{{ job.location }}</p>
+
+    <p style="font-weight:bold; color:green;">
+        {{ job.salary }}
+    </p>
+
+    <button class="apply-btn">Apply</button>
+
+</div>
+{% endfor %}
+
+</div>
+
+{% endblock %}

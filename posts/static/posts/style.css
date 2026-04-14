@@ -1,0 +1,89 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f6fa;
+    margin: 0;
+}
+/* Title */
+h1 {
+    margin-left: 20px;
+    font-size: 40px;
+}
+p {
+    color: #555;
+}
+
+/* Job Card */
+.job-card {
+    width: 350px;
+    margin: 15px;
+    padding: 20px;
+    border-radius: 12px;
+    background: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.apply-btn {
+    width: 100%;
+    padding: 12px;
+    background: #1e6dfb;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+/* Form Card */
+.form-card {
+    width: 400px;
+    margin: 50px auto;
+    padding: 25px;
+    background: white;
+    border-radius: 12px;
+}
+
+.page {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f4f6fb;
+}
+
+.profile-card {
+    width: 360px;
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    text-align: center;
+}
+.avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border: 3px solid #007bff;
+}
+/* Inputs */
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+a {
+    color: white;
+    margin-right: 15px;
+    text-decoration: none;
+    padding: 6px 10px;
+}
+
+a.active {
+    background: white;
+    color: #0b3b6f;
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-weight: bold;
+}

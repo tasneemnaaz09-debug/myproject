@@ -1,0 +1,22 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+
+<div class="form-card">
+    <h1>Create Account</h1>
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <input type="email" name="email" placeholder="Enter Email" required>
+
+    <input type="password" name="password" placeholder="Enter Password" required>
+
+    <input type="text" name="mobile" placeholder="Enter Mobile Number">
+
+    <input type="date" name="dob" placeholder="Date of Birth">
+
+    <input type="file" name="photo">
+
+    <button class="apply-btn">Register</button>
+</form>
+</div>

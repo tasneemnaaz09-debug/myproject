@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profile</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+            background: #f4f6fb;
+        }
+
+        .page {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .profile-card {
+            width: 360px;
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #007bff;
+        }
+
+        h2 {
+            margin: 10px 0 5px;
+        }
+
+        p {
+            color: gray;
+        }
+
+        button {
+            padding: 10px 15px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        .edit-form {
+            display: none;
+            margin-top: 10px;
+        }
+
+        input, textarea {
+            width: 90%;
+            padding: 8px;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="page">
+    <div class="profile-card">
+
+        <!-- PROFILE IMAGE -->
+        {% if profile.photo %}
+            <img src="{{ profile.photo.url }}" class="avatar">
+        {% else %}
+            <img src="https://via.placeholder.com/120" class="avatar">
+        {% endif %}
+
+        <!-- USER INFO -->
+        <h2>{{ request.user.username }}</h2>
+        <p>Email: {{ request.user.email }}</p>
+        <p>Mobile: {{ profile.mobile }}</p>
+        <p>DOB: {{ profile.dob }}</p>
+
+        <!-- EDIT BUTTON -->
+        <button onclick="toggleEdit()">Edit Profile</button>
+
+        <!-- EDIT FORM -->
+        <form method="POST" enctype="multipart/form-data" class="edit-form" id="editForm">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Save</button>
+        </form>
+
+    </div>
+</div>
+
+<script>
+function toggleEdit() {
+    var form = document.getElementById("editForm");
+    form.style.display = (form.style.display === "block") ? "none" : "block";
+}
+</script>
+
+</body>
+</html>

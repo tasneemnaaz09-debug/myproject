@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Job Portal</title>
+    <link rel="stylesheet" href="{% static 'posts/style.css' %}">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+ <div style="background:#0b3b6f; padding:15px; display:flex; justify-content:space-between;">
+
+    <div style="color:white;">
+        <b>JobPortal</b>
+    </div>
+
+    <div>
+        <a href="/" class="{% if request.path == '/' %}active{% endif %}">Home</a>
+
+        <a href="/jobs/" class="{% if '/jobs' in request.path %}active{% endif %}">Find Jobs</a>
+
+        <a href="/profile/" class="{% if '/profile' in request.path %}active{% endif %}">My Profile</a>
+
+        <a href="/about/" class="{% if request.path == '/about/' %}active{% endif %}">About Us</a>
+
+        <a href="/contact/" class="{% if request.path == '/contact/' %}active{% endif %}">Contact Us</a>
+
+        <a href="/logout/">Logout</a>
+    </div>
+
+</div>
+
+<!-- PAGE CONTENT -->
+{% block content %}
+{% endblock %}
+
+<!-- FOOTER -->
+<div class="footer">
+    <p>Connecting talent with opportunity since 2026.</p>
+</div>
+
+</body>
+</html>
