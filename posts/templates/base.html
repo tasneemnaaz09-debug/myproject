@@ -9,24 +9,28 @@
 <body>
 
 <!-- NAVBAR -->
- <div style="background:#0b3b6f; padding:15px; display:flex; justify-content:space-between;">
+<div style="background:#0b3b6f; padding:15px; display:flex; justify-content:space-between; align-items:center;">
 
     <div style="color:white;">
         <b>JobPortal</b>
     </div>
 
-    <div>
+    <div style="display:flex; gap:15px; align-items:center;">
+
         <a href="/" class="{% if request.path == '/' %}active{% endif %}">Home</a>
 
-        <a href="/jobs/" class="{% if '/jobs' in request.path %}active{% endif %}">Find Jobs</a>
+        <a href="/jobs/" class="{% if request.path|slice:':5' == '/jobs' %}active{% endif %}">Find Jobs</a>
 
-        <a href="/profile/" class="{% if '/profile' in request.path %}active{% endif %}">My Profile</a>
+        <a href="/profile/" class="{% if request.path|slice:':9' == '/profile' %}active{% endif %}">My Profile</a>
 
-        <a href="/about/" class="{% if request.path == '/about/' %}active{% endif %}">About Us</a>
+        <a href="/about/" class="{% if request.path == '/about/' %}active{% endif %}">About</a>
 
-        <a href="/contact/" class="{% if request.path == '/contact/' %}active{% endif %}">Contact Us</a>
+        <a href="/contact/" class="{% if request.path == '/contact/' %}active{% endif %}">Contact</a>
 
-        <a href="/logout/">Logout</a>
+        <a href="/logout/" style="background:red; padding:6px 10px; border-radius:6px; color:white;">
+            Logout
+        </a>
+
     </div>
 
 </div>
